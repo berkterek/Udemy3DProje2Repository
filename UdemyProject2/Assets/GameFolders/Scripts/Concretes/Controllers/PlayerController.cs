@@ -11,6 +11,7 @@ namespace UdemyProject2.Controllers
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] float _moveBoundary = 4.5f;
         [SerializeField] float _moveSpeed = 10f;
         [SerializeField] float _jumpForce = 300f;
         
@@ -19,7 +20,10 @@ namespace UdemyProject2.Controllers
         IInputReader _input;
         float _horizontal;
         bool _isJump;
-        
+
+        public float MoveSpeed => _moveSpeed;
+        public float MoveBoundary => _moveBoundary;
+
         private void Awake()
         {
             _horizontalMover = new HorizontalMover(this);
@@ -31,8 +35,6 @@ namespace UdemyProject2.Controllers
         {
             _horizontal = _input.Horizontal;
 
-            Debug.Log(_horizontal);
-            
             if (_input.IsJump)
             {
                 _isJump = true;
@@ -41,7 +43,7 @@ namespace UdemyProject2.Controllers
 
         private void FixedUpdate()
         {
-            _horizontalMover.TickFixed(_horizontal,_moveSpeed);
+            _horizontalMover.TickFixed(_horizontal);
 
             if (_isJump)
             {
