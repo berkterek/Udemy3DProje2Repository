@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UdemyProject2.Abstracts.Inputs;
 using UdemyProject2.Inputs;
+using UdemyProject2.Managers;
 using UdemyProject2.Movements;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,6 +21,7 @@ namespace UdemyProject2.Controllers
         IInputReader _input;
         float _horizontal;
         bool _isJump;
+        bool _isDead = false;
 
         public float MoveSpeed => _moveSpeed;
         public float MoveBoundary => _moveBoundary;
@@ -33,6 +35,8 @@ namespace UdemyProject2.Controllers
 
         void Update()
         {
+            if (_isDead) return;
+            
             _horizontal = _input.Horizontal;
 
             if (_input.IsJump)
@@ -51,6 +55,17 @@ namespace UdemyProject2.Controllers
             }
             
             _isJump = false;
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            EnemyController enemyController = other.GetComponent<EnemyController>();
+
+            if (enemyController != null)
+            {
+                _isDead = true;
+                GameManager.Instance.StopGame();
+            }
         }
     }    
 }
