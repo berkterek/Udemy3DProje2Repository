@@ -17,6 +17,18 @@ namespace UdemyProject2.Managers
         {
             Time.timeScale = 0f;
         }
+
+        public void LoadScene()
+        {
+            Debug.Log("Load Scene clicked");
+            //load islemleri
+        }
+
+        public void ExitGame()
+        {
+            Debug.Log("Exit on clicked");
+            Application.Quit();
+        }
     }    
 }
 
