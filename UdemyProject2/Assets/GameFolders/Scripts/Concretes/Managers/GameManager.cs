@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UdemyProject2.Abstracts.Utilities;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UdemyProject2.Managers
 {
@@ -18,10 +19,15 @@ namespace UdemyProject2.Managers
             Time.timeScale = 0f;
         }
 
-        public void LoadScene()
+        public void LoadScene(string sceneName)
         {
-            Debug.Log("Load Scene clicked");
-            //load islemleri
+            StartCoroutine(LoadSceneAsync(sceneName));
+        }
+
+        private IEnumerator LoadSceneAsync(string sceneName)
+        {
+            Time.timeScale = 1f;
+            yield return SceneManager.LoadSceneAsync(sceneName);
         }
 
         public void ExitGame()
