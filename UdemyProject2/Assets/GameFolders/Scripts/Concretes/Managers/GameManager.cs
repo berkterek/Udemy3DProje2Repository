@@ -9,6 +9,8 @@ namespace UdemyProject2.Managers
 {
     public class GameManager : SingletonMonoBehaviorObject<GameManager>
     {
+        public event System.Action OnGameStop;
+        
         void Awake()
         {
             SingletonThisObject(this);
@@ -17,6 +19,13 @@ namespace UdemyProject2.Managers
         public void StopGame()
         {
             Time.timeScale = 0f;
+
+            // if (OnGameStop != null)
+            // {
+            //     OnGameStop();
+            // }
+            
+            OnGameStop?.Invoke();
         }
 
         public void LoadScene(string sceneName)
