@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UdemyProject2.Abstracts.Controllers;
@@ -44,6 +43,12 @@ namespace UdemyProject2.Controllers
         {
             EnemyManager.Instance.SetPool(this);
         }
+
+        public void SetMoveSpeed(float moveSpeed)
+        {
+            if (moveSpeed < _moveSpeed) return;
+            
+            _moveSpeed = moveSpeed;
+        }
     }    
 }
-
