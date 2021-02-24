@@ -119,7 +119,7 @@ namespace UdemyProject2.Inputs
                     ""name"": """",
                     ""id"": ""0fed12cc-0467-4e94-bdb6-0e9dd66b612c"",
                     ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": ""Tap(duration=0.01)"",
+                    ""interactions"": ""Tap(duration=0.1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
