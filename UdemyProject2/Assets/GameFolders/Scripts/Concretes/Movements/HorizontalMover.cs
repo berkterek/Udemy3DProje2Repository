@@ -15,8 +15,8 @@ namespace UdemyProject2.Movements
         public HorizontalMover(IEntityController entityController)
         {
             _playerController = entityController;
-            // _moveSpeed = entityController.MoveSpeed;
-            // _moveBoundary = entityController.MoveBoundary;
+            _moveSpeed = entityController.MoveSpeed;
+            _moveBoundary = entityController.MoveBoundary;
         }
 
         public void FixedTick(float horizontal)

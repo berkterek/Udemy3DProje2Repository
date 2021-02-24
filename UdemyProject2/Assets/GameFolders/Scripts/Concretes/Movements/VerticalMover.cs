@@ -15,7 +15,7 @@ namespace UdemyProject2.Movements
         public VerticalMover(IEntityController entityController)
         {
             _entityController = entityController;
-            // _moveSpeed = _entityController.MoveSpeed;
+            _moveSpeed = _entityController.MoveSpeed;
         }
 
         public void FixedTick(float vertical = 1)
