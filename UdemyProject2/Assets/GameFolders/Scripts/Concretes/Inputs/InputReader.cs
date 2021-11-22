@@ -19,6 +19,7 @@ namespace UdemyProject2.Inputs
             
             _playerInput.currentActionMap.actions[0].performed += OnHorizontalMove;
             _playerInput.currentActionMap.actions[1].started += OnJump;
+            _playerInput.currentActionMap.actions[1].performed += OnJump;
             _playerInput.currentActionMap.actions[1].canceled += OnJump;
         }
 
